@@ -1,0 +1,327 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  html,
+  body,
+  #root,
+  .app {
+    @apply h-full w-full text-sm text-gray-300 bg-customgreys-primarybg;
+  }
+
+  :root {
+    --radius: 8px;
+  }
+
+  input[type="color"] {
+    @apply appearance-none bg-none border-0 cursor-pointer p-0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+
+  /* Configuración de temas */
+  :root {
+    --sidebar-background: theme("colors.customgreys.primarybg");
+    --sidebar-foreground: theme("colors.white.50");
+    --sidebar-primary: theme("colors.primary.700");
+    --sidebar-primary-foreground: theme("colors.white.50");
+    --sidebar-accent: theme("colors.customgreys.darkerGrey");
+    --sidebar-accent-foreground: theme("colors.customgreys.dirtyGrey");
+    --sidebar-border: theme("colors.customgreys.secondarybg");
+    --sidebar-ring: theme("colors.primary.700");
+    --popover: theme("colors.customgreys.primarybg");
+    --popover-foreground: theme("colors.white.50");
+
+    --background: theme("colors.customgreys.primarybg");
+    --foreground: theme("colors.white.50");
+
+    --primary: theme("colors.primary.700");
+    --primary-foreground: theme("colors.white.50");
+
+    --muted: theme("colors.primary.600");
+    --muted-foreground: theme("colors.customgreys.dirtyGrey");
+
+    --accent: theme("colors.primary.600");
+    --accent-foreground: theme("colors.white.50");
+
+    --border: theme("colors.customgreys.secondarybg");
+    --ring: theme("colors.primary.700");
+
+    --card: theme("colors.customgreys.primarybg");
+    --card-foreground: theme("colors.white.50");
+  }
+
+  .dark {
+    --sidebar-background: theme("colors.customgreys.primarybg");
+    --sidebar-foreground: theme("colors.white.50");
+    --sidebar-primary: theme("colors.primary.700");
+    --sidebar-primary-foreground: theme("colors.white.50");
+    --sidebar-accent: theme("colors.customgreys.darkerGrey");
+    --sidebar-accent-foreground: theme("colors.customgreys.dirtyGrey");
+    --sidebar-border: theme("colors.customgreys.secondarybg");
+    --sidebar-ring: theme("colors.primary.700");
+    --popover: theme("colors.customgreys.primarybg");
+    --popover-foreground: theme("colors.white.50");
+
+    --background: theme("colors.customgreys.primarybg");
+    --foreground: theme("colors.white.50");
+
+    --primary: theme("colors.primary.700");
+    --primary-foreground: theme("colors.white.50");
+
+    --muted: theme("colors.primary.600");
+    --muted-foreground: theme("colors.customgreys.dirtyGrey");
+
+    --accent: theme("colors.primary.600");
+    --accent-foreground: theme("colors.white.50");
+
+    --border: theme("colors.customgreys.secondarybg");
+    --ring: theme("colors.primary.700");
+
+    --card: theme("colors.customgreys.primarybg");
+    --card-foreground: theme("colors.white.50");
+  }
+}
+
+@layer components {
+  .bg-sidebar {
+    @apply bg-customgreys-primarybg;
+  }
+
+  /* Filepond */
+  .filepond--panel-root {
+    @apply !bg-customgreys-primarybg;
+  }
+
+  .filepond--drop-label label {
+    @apply cursor-pointer;
+  }
+
+  .filepond--drop-label {
+    @apply !text-white-50 cursor-pointer hover:!bg-customgreys-darkerGrey hover:!text-white-100;
+  }
+
+  /* Component Classes */
+  .search {
+    @apply flex flex-col bg-background text-foreground h-full mx-auto w-3/4;
+  }
+
+  .search__title {
+    @apply font-normal text-2xl mt-14;
+  }
+
+  .search__subtitle {
+    @apply text-gray-500 mb-3;
+  }
+
+  /* ... (Mantén todas tus clases personalizadas aquí) */
+  /* Continúa con todas las clases que tenías originalmente */
+  /* Solo asegúrate de usar @apply para las utilidades de Tailwind */
+  
+  /* Ejemplo adicional: */
+  .selected-course__price {
+    @apply text-primary-500 font-semibold text-2xl;
+  }
+
+  /* Footer */
+  .footer {
+    @apply bg-customgreys-secondarybg bottom-0 w-full py-8 mt-10 text-center text-sm;
+  }
+
+  /* NonDashboard Navbar */
+.nondashboard-navbar {
+  @apply w-full flex justify-center bg-customgreys-primarybg;
+}
+
+.nondashboard-navbar__container {
+  @apply flex justify-between items-center w-3/4 py-8;
+}
+
+.nondashboard-navbar__search {
+  @apply flex justify-between items-center gap-14;
+}
+
+.nondashboard-navbar__brand {
+  @apply font-bold text-lg sm:text-xl hover:text-customgreys-dirtyGrey;
+}
+
+.nondashboard-navbar__search-input {
+  @apply bg-customgreys-secondarybg pl-10 sm:pl-14 pr-6 sm:pr-20 py-3 sm:py-4 rounded-xl text-customgreys-dirtyGrey hover:text-white-50 hover:bg-customgreys-darkerGrey transition-all duration-300 text-sm sm:text-base;
+}
+
+.nondashboard-navbar__search-icon {
+  @apply absolute left-3 sm:left-5 top-1/2 transform -translate-y-1/2 text-customgreys-dirtyGrey transition-all duration-300;
+}
+
+.nondashboard-navbar__actions {
+  @apply flex items-center gap-2 sm:gap-4;
+}
+
+.nondashboard-navbar__notification-button {
+  @apply relative w-7 h-7 sm:w-8 sm:h-8 bg-gray-800 rounded-full flex items-center justify-center;
+}
+
+.nondashboard-navbar__notification-indicator {
+  @apply absolute top-0 right-0 bg-blue-500 h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full;
+}
+
+.nondashboard-navbar__notification-icon {
+  @apply text-gray-400 w-4 h-4 sm:w-5 sm:h-5;
+}
+
+.nondashboard-navbar__auth-button--login {
+  @apply text-customgreys-dirtyGrey hover:bg-customgreys-darkerGrey hover:text-white-50 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md border-customgreys-dirtyGrey border-[1px] text-sm sm:text-base;
+}
+
+.nondashboard-navbar__auth-button--signup {
+  @apply bg-indigo-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md hover:bg-primary-600 hover:text-customgreys-primarybg text-sm sm:text-base;
+}
+
+/* Landing Page */
+.landing {
+  @apply w-3/4;
+}
+
+.landing__hero {
+  @apply flex justify-between items-center mt-12 h-[500px] rounded-lg bg-customgreys-secondarybg;
+}
+
+.landing__hero-content {
+  @apply basis-1/2 px-16 mx-auto;
+}
+
+.landing__title {
+  @apply text-4xl font-bold mb-4;
+}
+
+.landing__description {
+  @apply text-lg text-gray-400 mb-8;
+}
+
+.landing__cta {
+  @apply w-fit;
+}
+
+.landing__cta-button {
+  @apply bg-primary-700 hover:bg-primary-600 px-4 py-2 rounded-md;
+}
+
+.landing__hero-images {
+  position: relative;
+  height: 500px; /* Altura específica */
+}
+
+.landing__hero-image {
+  position: absolute;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.landing__hero-image--active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.landing__featured {
+  @apply mx-auto py-12 mt-10;
+}
+
+.landing__featured-title {
+  @apply text-2xl font-semibold mb-4;
+}
+
+.landing__featured-description {
+  @apply text-customgreys-dirtyGrey mb-8;
+}
+
+.landing__tags {
+  @apply flex flex-wrap gap-4 mb-8;
+}
+
+.landing__tag {
+  @apply px-3 py-1 bg-customgreys-secondarybg rounded-full text-sm;
+}
+
+.landing__courses {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+/* Landing Skeleton */
+.landing-skeleton {
+  @apply w-3/4;
+}
+
+.landing-skeleton__hero {
+  @apply flex justify-between items-center mt-12 h-[500px] rounded-lg bg-customgreys-secondarybg;
+}
+
+.landing-skeleton__hero-content {
+  @apply basis-1/2 px-16 mx-auto;
+}
+
+.landing-skeleton__title {
+  @apply h-8 w-48 mb-4;
+}
+
+.landing-skeleton__subtitle {
+  @apply h-4 w-96 mb-2;
+}
+
+.landing-skeleton__subtitle-secondary {
+  @apply h-4 w-72 mb-8;
+}
+
+.landing-skeleton__button {
+  @apply w-40 h-10;
+}
+
+.landing-skeleton__hero-image {
+  @apply basis-1/2 h-full rounded-r-lg;
+}
+
+.landing-skeleton__featured {
+  @apply mx-auto py-12 mt-10;
+}
+
+.landing-skeleton__featured-title {
+  @apply h-6 w-48 mb-4;
+}
+
+.landing-skeleton__featured-description {
+  @apply h-4 w-full max-w-2xl mb-8;
+}
+
+.landing-skeleton__tags {
+  @apply flex flex-wrap gap-4 mb-8;
+}
+
+.landing-skeleton__tag {
+  @apply w-24 h-6 rounded-full;
+}
+
+.landing-skeleton__courses {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.landing-skeleton__course-card {
+  @apply h-[300px] rounded-lg;
+}
+
+
+  /* ... resto de tus clases personalizadas */
+}
+
+@layer utilities {
+  /* Agrega utilidades personalizadas si es necesario */
+  .hover-scale-105 {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+}
